@@ -1,0 +1,37 @@
+
+
+How to Build a CLI Gem
+
+    Plan your gem, imagine your interface
+    Start with the project structure - google
+    Start with the entry point - the file run
+    force that to build the CLI interface
+    stub out the interface
+    start making things real
+    discover objects.
+    program
+
+    A command line interface for Top 10 Cryptocurrencies By Market Capitalization, starting with the top 5.
+
+user types the-crypto-update
+
+Show a list of Top 5 Cryptocurrencies
+
+    Token (Symbol)            -       Price     -   24hr Change
+    Bitcoin (BTC)             -       $4040.63  -   -4.01 %
+    Ripple (XRP)              -       $0.364702 -   -4.01 %
+    Steller Lumens (XLM)      -       $0.159849 -   1.23 %
+    Bitcoin Coin ABC (BCHABC) -       $173.65   -   -1.31 %
+    EOS (EOS)                 -       $2.88     -   -1.73 %
+
+
+Which product do you want to learn more about?
+
+1
+
+What is a deal?
+
+A coin has a name
+A coin has a Symbol
+A coin has a price
+A coin has a 24hr Change
