@@ -1,0 +1,20 @@
+Crypto Update CLI Project
+
+I decided to create a CLI to be able to look up the coin prices in my turminal when I am coding.
+Which was the genius of this project.
+
+So the over all plan for this project is as follows:
+
+1. Make a cli that gets data from a main crypto exchange / site resource
+2. Populate the terminal with up to date information about their favorate crypto asset
+3. enable user to be able to choose from the top 100 crypto
+assets to see more detailed information about that coin
+
+
+The way that I will get the data that I need is scrape the site: https://info.binance.com/en
+It's where I usually get information about the price of a coin.
+
+At this point of the project Im proplex about what data that I am interested in seeing.
+I only care about a few things: the coins - name, price, 24 hour change, market cap to start.
+
+I want to be able to see

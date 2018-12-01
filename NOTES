@@ -35,3 +35,8 @@ A coin has a name
 A coin has a Symbol
 A coin has a price
 A coin has a 24hr Change
+
+
+Extra Information:
+#!/usr/bin/env ruby - ruby interpreter -  bin/the-crypto-update is not a ruby file we have to add this line to make sure
+that your computer / os knows how to interpret this file through ruby
