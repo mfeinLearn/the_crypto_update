@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
-require './lib/the_crypto_update'
+# require './lib/the_crypto_update'
+require "bundler/setup"
+require "the_crypto_update"
 
 TheCryptoUpdate::CLI.new.call #encapsulation - run everything fromt this file

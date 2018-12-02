@@ -11,4 +11,4 @@ require "the_crypto_update"
 # Pry.start
 
 require "irb"
-IRB.start(__FILE__)
+IRB.start#(__FILE__)
