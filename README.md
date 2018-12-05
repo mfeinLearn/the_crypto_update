@@ -1,7 +1,5 @@
 # TheCryptoUpdate
 
-All of the Data 
-
 Welcome to The Crypto Update! This project is a CLI application for crypto enthusiast! You can keep track of the top crypto assets via your terminal... how cool is that! The genesis for this project came from the frustration that I had towards going to Binance.com to check the prices of the digital asset(s) that I am following while I am programming.
 
 
