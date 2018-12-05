@@ -20,9 +20,6 @@ Or install it yourself as:
 
     $ gem install the_crypto_update
 
-## Usage
-
-TODO: Write usage instructions here
 
 ## Development
 
