@@ -1,8 +1,9 @@
 # TheCryptoUpdate
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/the_crypto_update`. To experiment with that code, run `bin/console` for an interactive prompt.
+All of the Data 
 
-TODO: Delete this and the text above, and describe your gem
+Welcome to The Crypto Update! This project is a CLI application for crypto enthusiast! You can keep track of the top crypto assets via your terminal... how cool is that! The genesis for this project came from the frustration that I had towards going to Binance.com to check the prices of the digital asset(s) that I am following while I am programming.
+
 
 ## Installation
 
@@ -29,7 +30,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/<github username>/the_crypto_update. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/mfeinLearn/the_crypto_update. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -37,4 +38,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the TheCryptoUpdate project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/<github username>/the_crypto_update/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the TheCryptoUpdate project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/mfeinLearn/the_crypto_update/blob/master/CODE_OF_CONDUCT.md).
