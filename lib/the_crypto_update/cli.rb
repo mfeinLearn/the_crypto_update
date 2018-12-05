@@ -1,5 +1,5 @@
 # our cli controller - business logic or user interactions/ dealing with input
-#require 'colorize'
+# require 'colorize'
 #require 'pry'
 class TheCryptoUpdate::CLI
 
@@ -55,7 +55,10 @@ class TheCryptoUpdate::CLI
     # puts "----------------------".colorize(:red)
       input = nil
       while input != "exit"
-        puts "Enter the number of the coin you'd like more info on or type list to see the deals again or type exit:"
+        puts "type: the number of the coin you'd like more info of"
+        puts "type: 'list' -  to see the list of coins again"
+        puts "type: 'details' - to see the details of the list of coins"
+        puts "type: 'exit' - to exit"
         input = gets.strip.downcase
 
         if input.to_i > 0
