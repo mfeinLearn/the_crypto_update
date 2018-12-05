@@ -13,3 +13,4 @@ require_relative './the_crypto_update/coin'
 #16:30
 #26:35
 #54:40
+#59:58

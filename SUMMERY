@@ -20,4 +20,24 @@ It's where I usually get information about the price of a coin.
 At this point of the project Im proplex about what data that I am interested in seeing.
 I only care about a few things: the coins - name, price, 24 hour change, market cap to start.
 
-I want to be able to see
+Scrapping dynamic data was sort of a pain but eventually I was able to scrape data and display it in the cli.
+My thought p
+
+
+In the beginning we wanted to scrape binance.
+but we where faced with an issue in regards to the dynmic nature of the site as well as the volitility of the
+crypto market. because the market is quite volitile the data was hard to scrape. so we ended up changing our approach to
+focus on different metrics. Mainly instead of a sec to sec bases we focused on a day to day prospective.
+
+which makes scraping that site (https://coinmarketcap.com/currencies/volume/monthly/) a little bit more to manage.
+
+
+
+changes:
+In the beginning I was thinking that Scraping binance.com would be a good idea for the data that I need.
+But, it turns out everytime I ran the program it would try to scrape the site but it would only get a few of the scraped data that I need.
+It turns out the site is always changing due to constant change of the data (prices...). So that lead me to
+change the site from binance.com to coinmarketcap.com because of the less frequency of change done by the site .
+The data will change every day, week, month vs every second, minute.
+
+ 

@@ -14,12 +14,16 @@ class TheCryptoUpdate::CLI
     # here doc - http://blog.jayfields.com/2006/12/ruby-multiline-strings-here-doc-or.html
     puts ""
     puts "Todays crypto update:"
-    puts "--------------------------------------"
-    puts "  Coin (Symbol) | Price | 24hr Change |"
-    puts "--------------------------------------"
-    @coins = TheCryptoUpdate::Coin.current
+    puts "Volume is the amount of the coin that has been traded with in a certain time frame...fyi"
+    puts "----------------------------------------------------------------------"
+    puts "|  Coin (Symbol) | Volume (1 day) |  Volume (7 day) | Volume (30 day) |"
+    puts "----------------------------------------------------------------------"
+
+    TheCryptoUpdate::Coin.scrape_binance
+
+    @coins = TheCryptoUpdate::Coin.all[0..99]
     @coins.each.with_index(1) do |coin, i|
-      puts "#{i}. #{coin.name} (#{coin.symbol}) | $#{coin.price} | #{coin.twemty_four_hr_change}% |"
+      puts "#{i}. #{coin.name} (#{coin.symbol}) | $#{coin.volume_1d} | #{coin.volume_7d}% | #{coin.volume_30d}% |"
     end
   end
 
@@ -36,7 +40,7 @@ class TheCryptoUpdate::CLI
 
         if input.to_i > 0
           the_coin = @coins[input.to_i-1]
-          puts "#{the_coin.name} (#{the_coin.symbol}) | $#{the_coin.price} | #{the_coin.twemty_four_hr_change}% |"
+          puts "#{coin.name} (#{coin.symbol}) | $#{coin.volume_1d} | #{coin.volume_7d}% | #{coin.volume_30d}% |"
         elsif input == "list"
           list_top_coins
         else
