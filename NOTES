@@ -2,8 +2,8 @@
 
 How to Build a CLI Gem
 
-    Plan your gem, imagine your interface
-    Start with the project structure - google
+    Plan your gem, imagine your interface(use fake ui/data)
+    Start with the project structure - google (figure out the patterns that other people are using to make their own gems)
     Start with the entry point - the file run
     force that to build the CLI interface
     stub out the interface
@@ -11,9 +11,52 @@ How to Build a CLI Gem
     discover objects.
     program
 
-    A command line interface for Top 10 Cryptocurrencies By Market Capitalization, starting with the top 5.
+    A command line interface for Top 100 Cryptocurrencies By Market Capitalization.
 
-user types the-crypto-update
+======================================================================
+============================NEW=======================================
+NEW> user types: ./bin/the-crypto-update
+
+
+    Todays crypto update:
+    Volume is the amount of the coin that has been traded with in a certain time frame...fy
+    -----------------
+    |  Coin (Symbol) |
+    -----------------
+    Bitcoin (BTC)
+    Ripple (XRP)
+    Steller Lumens (XLM)
+    Bitcoin Coin ABC (BCHABC)
+    EOS (EOS)
+
+
+Which coin do you want to learn more about?
+
+1
+
+ Todays crypto update:
+ Volume is the amount of the coin that has been traded with in a certain time frame...fyi
+ ----------------------------------------------------------------------
+ |  Coin (Symbol) | Volume (1 day) |  Volume (7 day) | Volume (30 day) |
+ ----------------------------------------------------------------------
+ | Bitcoin (BTC)  | $6,022,693,410 | $33,322,812,271 | $161,750,261,892 |
+
+
+What is a coin?
+
+A coin has a name
+A coin has a Symbol
+A coin has a volume_1d
+A coin has a volume_7d
+A coin has a volume_30d
+===========================NEW========================================
+======================================================================
+
+
+==========================OLD=========================================
+======================================================================
+
+OLD> user types: ./bin/the-crypto-update
 
 Show a list of Top 5 Cryptocurrencies
 
@@ -25,7 +68,7 @@ Show a list of Top 5 Cryptocurrencies
     EOS (EOS)                 -       $2.88     -   -1.73 %
 
 
-Which product do you want to learn more about?
+Which coin do you want to learn more about?
 
 1
 
@@ -36,7 +79,11 @@ A coin has a Symbol
 A coin has a price
 A coin has a 24hr Change
 
+======================================================================
+==========================OLD=========================================
+
 
 Extra Information:
 #!/usr/bin/env ruby - ruby interpreter -  bin/the-crypto-update is not a ruby file we have to add this line to make sure
 that your computer / os knows how to interpret this file through ruby
+-> imported ruby interpreter
