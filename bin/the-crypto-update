@@ -4,4 +4,5 @@
 require "bundler/setup"
 require "the_crypto_update"
 
-TheCryptoUpdate::CLI.new.call #encapsulation - run everything fromt this file
+#encapsulation - run everything fromt this file
+TheCryptoUpdate::CLI.new.call

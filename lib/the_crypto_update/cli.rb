@@ -12,14 +12,13 @@ class TheCryptoUpdate::CLI
   # 2. menu
   # 3. details
   # 4. close_cli_app
-  def call # the #call instance method is called in bin/the-crypto-update file
-
-    ## helper methods
+  ## NOTE: the #call instance method is called in bin/the-crypto-update file
+  def call
+    ## helper methods:
     list_top_coins
     menu
     details
     help
-    # my_watch_list
     close_cli_app
   end
 
@@ -27,7 +26,8 @@ class TheCryptoUpdate::CLI
   # expected result - to call the coin class and also call the all class method with all of the coins stored and get
   #   100 of those coins and store them in the instance varable @coins to be used to out-puted in the terminal
   def list_top_coins
-    # here doc - http://blog.jayfields.com/2006/12/ruby-multiline-strings-here-doc-or.html
+
+  # here doc - http://blog.jayfields.com/2006/12/ruby-multiline-strings-here-doc-or.html
   puts <<-DOC
    ____ ____ ____ _________ ____ ____ ____ ____ ____ ____ _________ ____ ____ ____ ____ ____ ____
   ||T |||h |||e |||       |||C |||r |||y |||p |||t |||o |||       |||U |||p |||d |||a |||t |||e ||
@@ -35,21 +35,20 @@ class TheCryptoUpdate::CLI
   |/__\|/__\|/__\|/_______\|/__\|/__\|/__\|/__\|/__\|/__\|/_______\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\||
 
   DOC
+  puts "Top 100 Cryptocurrencies By Market Capitalization"
+  puts ""
+  puts "Todays crypto update:"
+  puts "-----------------"
+  puts "|  Coin (Symbol) |"
+  puts "-----------------"
 
-    puts "Top 100 Cryptocurrencies By Market Capitalization"
-    puts ""
-    puts "Todays crypto update:"
-    puts "-----------------"
-    puts "|  Coin (Symbol) |"
-    puts "-----------------"
+  TheCryptoUpdate::Coin.scrape_coinmarketcap
+  @coins = TheCryptoUpdate::Coin.all[0..99]
 
-    TheCryptoUpdate::Coin.scrape_coinmarketcap
-    @coins = TheCryptoUpdate::Coin.all[0..99]
-    @coins.each.with_index(1) do |coin, i|
-      # puts "#{i}. #{coin.name} (#{coin.symbol}) | $#{coin.volume_1d} | #{coin.volume_7d}% | #{coin.volume_30d}% |"
-      puts "#{i}. #{coin.name} (#{coin.symbol})"
-
-    end
+  @coins.each.with_index(1) do |coin, i|
+    # puts "#{i}. #{coin.name} (#{coin.symbol}) | $#{coin.volume_1d} | #{coin.volume_7d}% | #{coin.volume_30d}% |"
+    puts "#{i}. #{coin.name} (#{coin.symbol})"
+  end
 
     # test 1
     # puts <<-DOC.gsub /^\s*/, ''
@@ -104,8 +103,6 @@ class TheCryptoUpdate::CLI
     # coin_5.volume_30d = "https://info.binance.com/en"
     #
     # [coin_1.name, coin_2.name, coin_3.name, coin_4.name, coin_5.name]
-
-    #binding.pry
   end
 
   # #help - is an instance method to help users know what commands are availible to them
@@ -131,7 +128,7 @@ class TheCryptoUpdate::CLI
   # expected result - to call the coin class and also call the all class method with all of the coins stored and get
   #   100 of those coins and store them in the instance varable @coins to be used to out-puted in the terminal
   def details
-    # here doc - http://blog.jayfields.com/2006/12/ruby-multiline-strings-here-doc-or.html
+
     puts ""
     puts "Todays crypto update:"
     puts "Volume is the amount of the coin that has been traded with in a certain time frame...fyi"
@@ -141,8 +138,8 @@ class TheCryptoUpdate::CLI
     puts ""
 
     TheCryptoUpdate::Coin.scrape_coinmarketcap
-
     @coins = TheCryptoUpdate::Coin.all[0..99]
+
     @coins.find do |coin|
       puts " #{coin.name} (#{coin.symbol}) | $#{coin.volume_1d} | $#{coin.volume_7d} | $#{coin.volume_30d} |"
     end
@@ -199,40 +196,39 @@ class TheCryptoUpdate::CLI
     # coin_5.url = "https://info.binance.com/en"
     #
     # [coin_1.name, coin_2.name, coin_3.name, coin_4.name, coin_5.name]
-
-
   end
+
   # menu - gets user input and direct the user to different methods depending on the input
   # expected - when the user types a word it is then checked to see if it is one of the options
+  #
   # if it is not one of the options then it should tell the user that it has
   # no idea what that word mean and to type list or exit
   def menu
 
     puts ""
-    # puts "----------------------".colorize(:green)
-    # puts "  github:".colorize(:light_blue)
-    # puts "----------------------".colorize(:light_blue)
-    # puts "----------------------".colorize(:red)
-      input = nil
-      while input != "exit"
-        puts "type: 'help' - to see all commands"
-        input = gets.strip.downcase
 
-        if input.to_i > 0
-          the_coin = @coins[input.to_i-1]
-          puts "#{the_coin.name} (#{the_coin.symbol}) | $#{the_coin.volume_1d} | $#{the_coin.volume_7d} | $#{the_coin.volume_30d} |"
-        elsif input == "help"
-          help
-        elsif input == "list"
-          list_top_coins
-        elsif input == "details"
-          details
-        else
-          puts ""
-          puts "Not sure what that means, please type list or exit"
-          puts ""
-        end
+    input = nil
+
+    while input != "exit"
+      puts "type: 'help' - to see all commands"
+      input = gets.strip.downcase
+
+      if input.to_i > 0
+        the_coin = @coins[input.to_i-1]
+        puts "#{the_coin.name} (#{the_coin.symbol}) | $#{the_coin.volume_1d} | $#{the_coin.volume_7d} | $#{the_coin.volume_30d} |"
+      elsif input == "help"
+        help
+      elsif input == "list"
+        list_top_coins
+      elsif input == "details"
+        details
+      else
+        puts ""
+        puts "Not sure what that means, please type list or exit"
+        puts ""
       end
+
+    end
 
     # test 1
     # puts ""
@@ -253,12 +249,7 @@ class TheCryptoUpdate::CLI
     #       puts ""
     #     end
     #   end
-
   end
-
-  # def my_watch_list
-  #   puts "My Watch list 🎉 😍:"
-  # end
 
   def close_cli_app
     puts ""
@@ -267,7 +258,5 @@ class TheCryptoUpdate::CLI
     puts ""
     puts ""
   end
-
-
 
 end
