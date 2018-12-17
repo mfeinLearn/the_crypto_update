@@ -41,7 +41,7 @@ class TheCryptoUpdate::CLI
     puts "|  Coin (Symbol) |"
     puts "-----------------"
 
-    TheCryptoUpdate::Coin.scrape_coinmarketcap
+    Scraper.scrape_coinmarketcap
     @coins = TheCryptoUpdate::Coin.all[0..99]
 
     @coins.each.with_index(1) do |coin, i|
@@ -83,7 +83,7 @@ class TheCryptoUpdate::CLI
     puts "----------------------------------------------------------------------"
     puts ""
 
-    TheCryptoUpdate::Coin.scrape_coinmarketcap
+    Scraper.scrape_coinmarketcap
     @coins = TheCryptoUpdate::Coin.all[0..99]
 
     @coins.find do |coin|

@@ -7,3 +7,4 @@ require 'pry'
 require_relative "./the_crypto_update/version"
 require_relative './the_crypto_update/cli'
 require_relative './the_crypto_update/coin'
+require_relative './the_crypto_update/scraper'
