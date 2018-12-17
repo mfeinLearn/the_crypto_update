@@ -15,6 +15,7 @@ class TheCryptoUpdate::CLI
   ## NOTE: the #call instance method is called in bin/the-crypto-update file
   def call
     ## helper methods:
+    Scraper.scrape_coinmarketcap
     list_top_coins
     menu
     details
@@ -27,13 +28,14 @@ class TheCryptoUpdate::CLI
   #   100 of those coins and store them in the instance varable @coins to be used to out-puted in the terminal
   def list_top_coins
     # here doc - http://blog.jayfields.com/2006/12/ruby-multiline-strings-here-doc-or.html
-    puts <<-DOC
+    puts <<-DOC.colorize(:cyan)
      ____ ____ ____ _________ ____ ____ ____ ____ ____ ____ _________ ____ ____ ____ ____ ____ ____
     ||T |||h |||e |||       |||C |||r |||y |||p |||t |||o |||       |||U |||p |||d |||a |||t |||e ||
     ||__|||__|||__|||_______|||__|||__|||__|||__|||__|||__|||_______|||__|||__|||__|||__|||__|||__||
     |/__\|/__\|/__\|/_______\|/__\|/__\|/__\|/__\|/__\|/__\|/_______\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\|/__\||
 
     DOC
+
     puts "Top 100 Cryptocurrencies By Market Capitalization"
     puts ""
     puts "Todays crypto update:"
@@ -41,7 +43,6 @@ class TheCryptoUpdate::CLI
     puts "|  Coin (Symbol) |"
     puts "-----------------"
 
-    Scraper.scrape_coinmarketcap
     @coins = TheCryptoUpdate::Coin.all[0..99]
 
     @coins.each.with_index(1) do |coin, i|
@@ -83,7 +84,6 @@ class TheCryptoUpdate::CLI
     puts "----------------------------------------------------------------------"
     puts ""
 
-    Scraper.scrape_coinmarketcap
     @coins = TheCryptoUpdate::Coin.all[0..99]
 
     @coins.find do |coin|
@@ -109,7 +109,7 @@ class TheCryptoUpdate::CLI
 
       if input.to_i > 0
         the_coin = @coins[input.to_i-1]
-        puts "#{the_coin.name} (#{the_coin.symbol}) | $#{the_coin.volume_1d} | $#{the_coin.volume_7d} | $#{the_coin.volume_30d} |"
+        puts "#{the_coin.name} (#{the_coin.symbol}) | $#{the_coin.volume_1d} | $#{the_coin.volume_7d} | $#{the_coin.volume_30d} |".colorize(:green)
       elsif input == "help"
         help
       elsif input == "list"

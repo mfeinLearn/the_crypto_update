@@ -4,6 +4,7 @@
 require 'open-uri'
 require 'nokogiri'
 require 'pry'
+require 'colorize'
 require_relative "./the_crypto_update/version"
 require_relative './the_crypto_update/cli'
 require_relative './the_crypto_update/coin'

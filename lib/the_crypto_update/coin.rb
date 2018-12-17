@@ -30,11 +30,6 @@ class TheCryptoUpdate::Coin
     @@all
   end
 
-  # self.current - this calls the self.scrape_coins method
-  def self.current
-    # Scrape coinmarketcap and then return coins based on that data
-    self.scrape_coins
-  end
 
   # class method - this calls the self.scrape_coinmarketcap(class method) and shovel the return value of
   #   self.scrape_coinmarketcap into a coins array then calling the that coins array
