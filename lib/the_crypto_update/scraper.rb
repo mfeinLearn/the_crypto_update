@@ -9,7 +9,8 @@ class Scraper
     # instantiate a coin
     def self.scrape_coinmarketcap
       # coin_object_hash - Creating a new TheCryptoUpdate::Coin object that takes in a name, symbol, volume_1d, volume_7d, volume_30d
-      coin_object_hash = TheCryptoUpdate::Coin.new(name: nil, symbol: nil, volume_1d: nil,volume_7d: nil, volume_30d: nil)
+      #coin_object_hash = nil
+      # TheCryptoUpdate::Coin.new(name: nil, symbol: nil, volume_1d: nil,volume_7d: nil, volume_30d: nil)
 
       # By using the Nokogiri::HTML method - to take the string of the HTML returned by# open-uri’s open method
       # - and - convert it into a NodeSet (aka, a bunch of nested "nodes") sooooo that we can easily play around with
@@ -28,9 +29,9 @@ class Scraper
         volume_7d  = coin.css("a").text.split("$")[2]
         volume_30d  = coin.css("a").text.split("$")[3]
 
-        coin_object_hash = TheCryptoUpdate::Coin.new(name: name, symbol: symbol, volume_1d: volume_1d, volume_7d: volume_7d, volume_30d: volume_30d)
+        TheCryptoUpdate::Coin.new(name: name, symbol: symbol, volume_1d: volume_1d, volume_7d: volume_7d, volume_30d: volume_30d)
       end
-      coin_object_hash
+      #coin_object_hash
     end
 
 end
