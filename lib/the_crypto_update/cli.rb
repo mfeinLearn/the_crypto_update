@@ -107,7 +107,7 @@ class TheCryptoUpdate::CLI
       puts "type: 'help' - to see all commands"
       input = gets.strip.downcase
 
-      if input.to_i > 0
+      if input.to_i > 0 && input.to_i < 100
         the_coin = @coins[input.to_i-1]
         puts "#{the_coin.name} (#{the_coin.symbol}) | $#{the_coin.volume_1d} | $#{the_coin.volume_7d} | $#{the_coin.volume_30d} |".colorize(:green)
       elsif input == "help"
