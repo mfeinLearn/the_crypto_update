@@ -1,7 +1,3 @@
-require 'open-uri'
-require 'nokogiri'
-require 'pry'
-
 class TheCryptoUpdate::Coin
 
   # attr_accessor - these are methods "setters" and "getters"
@@ -17,11 +13,11 @@ class TheCryptoUpdate::Coin
   # name of the value you want to pass to that method.
   #4. The ruby .send method then calls the method name that is the key’s name, with an argument of the value.
   # 5. then that instance of coin is then shuffled into the the @@all empty array (class varable)
-  def initialize(coin_hash)
+  def initialize(coin_attributes_hash)
 
-    if coin_hash[:name] != nil
+    if coin_attributes_hash[:name] != nil
 
-      coin_hash.each {|key, value| self.send(("#{key}="), value) }
+      coin_attributes_hash.each {|attribute_name, attribute_value| self.send(("#{attribute_name}="), attribute_value) }
 
       @@all << self
     end
@@ -30,6 +26,7 @@ class TheCryptoUpdate::Coin
 
   # self.all - this access the @@all (class varable) array that stores all of the coins
   def self.all
+
     @@all
   end
 
@@ -41,6 +38,8 @@ class TheCryptoUpdate::Coin
 
   # class method - this calls the self.scrape_coinmarketcap(class method) and shovel the return value of
   #   self.scrape_coinmarketcap into a coins array then calling the that coins array
+  #
+  # Job: stores coins inside array
   def self.scrape_coins
 
     coins = []
@@ -58,8 +57,8 @@ class TheCryptoUpdate::Coin
   # extract the properties
   # instantiate a coin
   def self.scrape_coinmarketcap
-    # a_coin_obj - Creating a new TheCryptoUpdate::Coin object that takes in a name, symbol, volume_1d, volume_7d, volume_30d
-    a_coin_obj = self.new(name: nil, symbol: nil, volume_1d: nil,volume_7d: nil, volume_30d: nil)
+    # coin_object_hash - Creating a new TheCryptoUpdate::Coin object that takes in a name, symbol, volume_1d, volume_7d, volume_30d
+    coin_object_hash = self.new(name: nil, symbol: nil, volume_1d: nil,volume_7d: nil, volume_30d: nil)
 
     # By using the Nokogiri::HTML method - to take the string of the HTML returned by# open-uri’s open method
     # - and - convert it into a NodeSet (aka, a bunch of nested "nodes") sooooo that we can easily play around with
@@ -78,9 +77,9 @@ class TheCryptoUpdate::Coin
       volume_7d  = coin.css("a").text.split("$")[2]
       volume_30d  = coin.css("a").text.split("$")[3]
 
-      a_coin_obj = self.new(name: name, symbol: symbol, volume_1d: volume_1d, volume_7d: volume_7d, volume_30d: volume_30d)
+      coin_object_hash = self.new(name: name, symbol: symbol, volume_1d: volume_1d, volume_7d: volume_7d, volume_30d: volume_30d)
     end
-    a_coin_obj
+    coin_object_hash
   end
 
 end
